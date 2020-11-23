@@ -15,13 +15,31 @@ let corsOptions = {
 };
 app.use(express.json());
 app.use(cors(corsOptions));
+
+
+// ------------------------ Middleware
+
+//Body Parser
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+
 //Dot Env
 require('dotenv').config();
 
-//Middleware
+//Passport config
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json());
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(db.User.authenticate()));
+passport.serializeUser(db.User.serializeUser());
+passport.deserializeUser(db.User.deserializeUser());
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.success = req.flash('success');
+  res.locals.error = req.flash('error');
+  res.locals.currentUser = req.user;
+  next();
+});
 
 //Method Override
 app.use(methodOverride('_method'));
