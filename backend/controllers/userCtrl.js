@@ -43,20 +43,6 @@ const create = async (req,res) => {
   }
 };
 
-// app.post('/signup', async(req, res) => {
-//   try {
-//     const newUser = new db.User({username: req.body.username, name: req.body.name})
-//     const registeredUser = await db.User.register(newUser, req.body.password)
-//     req.login(registeredUser, err => {
-//     if (err) return console.log(err);
-//     // req.flash('success', 'Thanks for registering!');
-//     res.redirect(`user/${req.user._id}`)})}
-//     catch(e) {
-//     // req.flash('error', e.message);
-//     res.redirect('signup');
-//   }
-// })
-
 module.exports = {
   index,
   show,

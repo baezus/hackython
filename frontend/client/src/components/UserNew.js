@@ -4,6 +4,7 @@ import UserModel from '../models/user';
 class UserNew extends React.Component {
   state = {
     name: '',
+    email: '',
     username: '',
     password: '',
     completed: false
@@ -45,6 +46,19 @@ class UserNew extends React.Component {
               type="text"
               name="name"
             />
+          </div>
+          <div className = "formGroup">
+            <label 
+              className="formGroupLabel"
+              htmlFor="email">Email
+              </label>
+              <input 
+                onChange = {this.handleInputChange}
+                className="formGroupInput"
+                value={this.state.email}
+                type="email"
+                name="email"
+              />
           </div>
           <div className="formGroup">
             <label

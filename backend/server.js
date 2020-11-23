@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const methodOverride = ('method-override');
 const session = require('express-session');
 const passport = require('passport');
-const flash = require('connect-flash');
+// const flash = require('connect-flash');
 const LocalStrategy = require('passport-local');
 const cors = require('cors');
 const db = require('./models');
@@ -23,6 +23,21 @@ app.use(cors(corsOptions));
 //Body Parser
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
+
+//Socket.io
+const http= require('http').Server(app);
+const io = require('socket.io')(http);
+io.on('connection', function(socket) {
+  console.log('a user connected');
+  socket.on('disconnect', function() {
+      console.log('User Disconnected');
+  });
+
+  socket.on('example_message', function(msg) {
+    console.log('message: ' + msg);
+  });
+});
+io.listen(8000);
 
 //Dot Env
 require('dotenv').config();
