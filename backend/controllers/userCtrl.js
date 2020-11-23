@@ -8,6 +8,13 @@ const db = require('../models');
 //Current path = '/user'
 
 //show user
+
+const index = (req, res) => {
+  console.log('Home page');
+  const response = 'you made it to the index';
+  res.json({ response: response });
+} 
+
 const show = (req, res) => {
   console.log('Made it to the user show route.');
   db.User.findById(req.params.id)
@@ -34,6 +41,7 @@ const create = (req,res) => {
 };
 
 module.exports = {
+  index,
   show,
   create,
 };

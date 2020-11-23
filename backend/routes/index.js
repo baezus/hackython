@@ -1,3 +1,3 @@
 module.exports = {
-  haiku: require('./haiku'),
+  user: require('./user'),
 };

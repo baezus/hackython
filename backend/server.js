@@ -9,7 +9,7 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const LocalStrategy = require('passport-local');
 const cors = require('cors');
-const { db } = require('./models/User');
+const db = require('./models');
 
 let corsOptions = {
   origin: 'http://localhost:3000'
@@ -34,18 +34,19 @@ app.use(passport.session());
 passport.use(new LocalStrategy(db.User.authenticate()));
 passport.serializeUser(db.User.serializeUser());
 passport.deserializeUser(db.User.deserializeUser());
-app.use(flash());
-app.use((req, res, next) => {
-  res.locals.success = req.flash('success');
-  res.locals.error = req.flash('error');
-  res.locals.currentUser = req.user;
-  next();
-});
+// app.use(flash());
+// app.use((req, res, next) => {
+//   res.locals.success = req.flash('success');
+//   res.locals.error = req.flash('error');
+//   res.locals.currentUser = req.user;
+//   next();
+// });
 
 //Method Override
-app.use(methodOverride('_method'));
+// app.use(methodOverride('_method'));
 
 //Routes
+const routes = require('./routes');
 
 //Home
 app.get('/', (req, res) => {
@@ -53,7 +54,7 @@ app.get('/', (req, res) => {
 });
 
 //Users
-app.use('/users', routes.users);
+app.use('/user', routes.user);
 
 //Passport User Create Route
 app.post('/signup', async(req, res) => {
@@ -62,10 +63,10 @@ app.post('/signup', async(req, res) => {
     const registeredUser = await db.User.register(newUser, req.body.password)
     req.login(registeredUser, err => {
     if (err) return console.log(err);
-    req.flash('success', 'Thanks for registering!');
+    // req.flash('success', 'Thanks for registering!');
     res.redirect(`user/${req.user._id}`)})}
     catch(e) {
-    req.flash('error', e.message);
+    // req.flash('error', e.message);
     res.redirect('signup');
   }
 })
