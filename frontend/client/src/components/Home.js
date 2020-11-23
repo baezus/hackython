@@ -1,27 +1,28 @@
 import React from 'react';
-import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:5000');
+import { Link } from 'react-router-dom';
 
-class Home extends React.Component {
-  constructor() {
-    super();
-    this.sendSocketIO = this.sendSocketIO.bind(this);
-  }
+const Home = () => {
+  const [roomName, setRoomName] = React.useState("");
 
-  sendSocketIO() {
-    socket.emit('example_message', 'demo');
-  }
+  const handleRoomNameChange = (event) => {
+    setRoomName(event.target.value);
+  };
 
-  render() {
-    return (
-      <div>
-        <h1>Welcome to Watchopolis </h1>
-        <div>
-          <button onClick={this.sendSocketIO}>Send Socket.io</button>
-        </div>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="home-container">
+      <h1>Welcome to Watchopolis!</h1>
+      <input
+        type="text"
+        placeholder="Room"
+        value={roomName}
+        onChange={handleRoomNameChange}
+        className="text-input-field"
+      />
+      <Link to={`room/${roomName}`} className="enter-room-button">
+        Join room
+      </Link>
+    </div>
+  );
+};
 
 export default Home;
