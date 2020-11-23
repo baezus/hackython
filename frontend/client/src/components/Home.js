@@ -1,6 +1,6 @@
 import React from 'react';
 import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:8000');
+const socket = openSocket('http://localhost:5000');
 
 class Home extends React.Component {
   constructor() {

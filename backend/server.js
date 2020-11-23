@@ -37,7 +37,7 @@ io.on('connection', function(socket) {
     console.log('message: ' + msg);
   });
 });
-io.listen(8000);
+io.listen(5000);
 
 //Dot Env
 require('dotenv').config();
