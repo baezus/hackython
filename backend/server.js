@@ -9,6 +9,7 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const LocalStrategy = require('passport-local');
 const cors = require('cors');
+const { db } = require('./models/User');
 
 let corsOptions = {
   origin: 'http://localhost:3000'
@@ -46,12 +47,30 @@ app.use(methodOverride('_method'));
 
 //Routes
 
+//Home
 app.get('/', (req, res) => {
   res.render('index')
 });
 
+//Users
 app.use('/users', routes.users);
 
+//Passport User Create Route
+app.post('/signup', async(req, res) => {
+  try {
+    const newUser = new db.User({username: req.body.username, name: req.body.name})
+    const registeredUser = await db.User.register(newUser, req.body.password)
+    req.login(registeredUser, err => {
+    if (err) return console.log(err);
+    req.flash('success', 'Thanks for registering!');
+    res.redirect(`user/${req.user._id}`)})}
+    catch(e) {
+    req.flash('error', e.message);
+    res.redirect('signup');
+  }
+})
+
+//Error route
 app.use('*', (req, res) => {
   res.send('404!');
 });
