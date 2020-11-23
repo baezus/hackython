@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Home from '../components/Home';
 import UserShow from '../pages/UserShow';
-import UserNew from '../pages/UserNew';
+import UserNew from '../components/UserNew';
 
 export default (
   <Switch>

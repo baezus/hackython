@@ -28,17 +28,34 @@ const show = (req, res) => {
 };
 
 //new user
-const create = (req,res) => {
+const create = async (req,res) => {
   console.log(req.body);
-  db.User.create(req.body)
-  .then((savedUser) => {
-    res.status(201).json({ user: savedUser });
-  })
-  .catch((err) => {
-    console.log('Error in User.create: ', err);
-    res.json({ Error: 'Unable to create user.' })
-  });
+  try {
+    const newUser = new db.User({username: req.body.username, name: req.body.name})
+    const registeredUser = await db.User.register(newUser, req.body.password)
+    req.login(registeredUser, err => {
+    if (err) return console.log(err);
+    // req.flash('success', 'Thanks for registering!');
+    res.redirect(`user/${req.user._id}`)})}
+    catch(e) {
+    // req.flash('error', e.message);
+    res.redirect('signup');
+  }
 };
+
+// app.post('/signup', async(req, res) => {
+//   try {
+//     const newUser = new db.User({username: req.body.username, name: req.body.name})
+//     const registeredUser = await db.User.register(newUser, req.body.password)
+//     req.login(registeredUser, err => {
+//     if (err) return console.log(err);
+//     // req.flash('success', 'Thanks for registering!');
+//     res.redirect(`user/${req.user._id}`)})}
+//     catch(e) {
+//     // req.flash('error', e.message);
+//     res.redirect('signup');
+//   }
+// })
 
 module.exports = {
   index,

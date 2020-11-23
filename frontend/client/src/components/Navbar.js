@@ -9,10 +9,10 @@ function Navbar (props) {
           <Link to="/">Home</Link>
         </li>
         <li className = "navLi">
-          <Link to="/users">All Users</Link>
+          <Link to="/user">All Users</Link>
         </li>
         <li className="navLi">
-          <Link to="/users/new">Add New Haiku</Link>
+          <Link to="/user/new">Add New User</Link>
         </li>
       </ul>
     </nav>
