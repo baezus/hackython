@@ -1,6 +1,5 @@
-.video-container {
-  width: 75vh;
-}
 .chatbox {
-  display: block;
+  display: inline-block;
+  margin-bottom: 15px;
+  font-size: 100%;
 }

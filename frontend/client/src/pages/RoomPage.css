@@ -1,27 +1,44 @@
-.video_container {
-  width: 65vh;
-  padding-left: 5em;
-  margin-right: 0;
+.video-container {
+  /* width: 65vh; */
+  margin-left: 10vh;
+  margin-right: none;
   border-right: 0;
+  padding-bottom: none;
+  width: 75vh;
+  float: left;
+  border: 20px #1D1D27;
+  border-radius: 2%;
+  border-style: double;
+  
 }
 
 .video_details {
-  display: flex;
-  flex-flow: column;
+  display: block;
+  /* flex-flow: column; */
   width: 30%;
   padding-left: 2.5em;
   text-align: left;
+  float: bottom;
+  
 }
 
 #roomID {
   margin-left: -15px;
+  margin-top: 200px;
+  padding-top: 60px;
+  float: bottom;
 }
+
 .chatbox {
-  border: 1px solid;
-  width: 400px;
+  border: 10px double #FFCE2C;
+  width: 35vh;
+  text-align: center;
+  height: 300px;
   float: right;
-  margin-right: 300px;
-  padding-bottom: 300px;
-  height: 400px;
-  
+  padding-bottom: 28%;
+  margin-left: none;
+  margin-right: 5vh;
+  border-radius: 2%;
+  overflow: scroll;
+  background-color: whitesmoke;
 }

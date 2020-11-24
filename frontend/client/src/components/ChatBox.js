@@ -47,6 +47,7 @@ class ChatBox extends Component {
   render() {
     return (
       <div className='chatbox'>
+        <h2>Chat?</h2>
         <label htmlFor="name">
           <input 
             type="text"

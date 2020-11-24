@@ -5,7 +5,6 @@ import './VideoPlayer.css';
 const VideoPlayer = (props) => {
   return(  
     <div className='player-wrapper'>
-        <h4>Video Player</h4>
         <ReactPlayer
           className='react-player'
           url='https://www.youtube.com/watch?v=Ks3_kuRAzHs'

@@ -1,6 +1,6 @@
 footer {
   background: #1d1d27;
-  
+  height: 10vh;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -10,7 +10,8 @@ ul {
   display: flex;
   flex-direction: row;
   align-items: center;
-  
+  justify-content: left;
+  margin-top: 40px;
   padding: 0;
   
 }
@@ -19,4 +20,6 @@ a {
   list-style-type: none;
   color: #fff;
   text-decoration: none;
+  font-size: 110%;
+  overflow: hidden;
 }
