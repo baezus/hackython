@@ -12,7 +12,7 @@ const cors = require('cors');
 const db = require('./models');
 
 let corsOptions = {
-  origin: ['http://localhost:3000', 'http://localhost:3001']
+  origin: ['http://localhost:3000']
 };
 app.use(express.json());
 app.use(cors(corsOptions));
@@ -25,30 +25,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 //Socket.io
-const server = require('http').createServer();
-const io = require('socket.io')(server);
+const http = require('http');
 
-const socketPORT = 3001;
-const NEW_CHAT_MESSAGE_EVENT = "newChatMessage";
-io.on('connection', (socket) => {
-
-  //Join a conversation
-  const { roomId } = socket.handshake.query;
-  socket.join(roomId);
-
-  //Listen for new messages
-  socket.on(NEW_CHAT_MESSAGE_EVENT, (data) => {
-    io.in(roomId).emit(NEW_CHAT_MESSAGE_EVENT, data);
-  });
-
-  //Leave the room
-  socket.on('disconnect', () => {
-    socket.leave(roomId);
-  });
-});
-
-
-io.listen(3001);
 
 //Dot Env
 require('dotenv').config();
@@ -102,7 +80,7 @@ app.use('*', (req, res) => {
   res.send('404!');
 });
 
-app.listen(PORT, () => { 
+server.listen(PORT, () => { 
   console.log(`Server is tootin' and boopin' on port ${PORT}!`);
 });
 
