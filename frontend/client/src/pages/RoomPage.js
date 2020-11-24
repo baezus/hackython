@@ -13,7 +13,7 @@ class RoomPage extends React.Component{
       <div>
         <h1>Room Page</h1>
         <div className = "video_container">
-        <VideoPlayer />
+        <VideoPlayer className='videoplayer'/>
         </div>
       
         <div className="video_details">
@@ -21,7 +21,8 @@ class RoomPage extends React.Component{
         <h3 className="video_details">https://www.watchopolis.com/room/{this.props.roomId}</h3>
         </div>
         <div className="chatbox">
-          <ChatBox />
+          <p>Chat</p>
+          <ChatBox className='chats'/>
         </div>
       </div>
     )

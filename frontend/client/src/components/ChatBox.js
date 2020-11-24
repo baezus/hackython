@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ChatInput from './ChatInput';
 import ChatMessage from './ChatMessage';
+import './ChatBox.css'
 
 const URL = 'ws://localhost:3001';
 
@@ -45,7 +46,7 @@ class ChatBox extends Component {
 
   render() {
     return (
-      <div>
+      <div className='chat-box'>
         <label htmlFor="name">
           Name:&nbsp;
           <input 

@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import Home from '../components/Home';
-import UserShow from '../pages/UserShow';
+// import UserShow from '../pages/UserShow';
 import UserNew from '../components/UserNew';
 import ChatBox from '../components/ChatBox';
 import RoomPage from '../pages/RoomPage';
@@ -13,7 +13,7 @@ export default (
     <Switch>
     <Route exact path ="/" component = { Home }/>
     <Route exact path='/user/new' component = { UserNew }/>
-    <Route exact path='/user/:id' component = { UserShow }/>
+    {/* <Route exact path='/user/:id' component = { UserShow }/> */}
     <Route path="/room/:roomId" exact component = { RoomPage } />
   </Switch>
   </Router>
