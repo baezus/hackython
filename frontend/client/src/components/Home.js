@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css'
+import VideoPlayer from './VideoPlayer';
 
 const Home = () => {
   const [roomName, setRoomName] = React.useState("");
@@ -23,7 +24,7 @@ const Home = () => {
         <p>Watch movies and videos</p>
         <p>with your friends!</p>
       </div>
-        
+      
       <section className='card'>
       <p>Join a room</p>
         <input

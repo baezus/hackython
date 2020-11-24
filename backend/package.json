@@ -28,5 +28,8 @@
     "react-router-dom": "^5.2.0",
     "socket.io": "^3.0.3",
     "socket.io-client": "^3.0.3"
+  },
+  "devDependencies": {
+    "ws": "^7.4.0"
   }
 }
