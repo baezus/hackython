@@ -1,34 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css'
+import './Navbar.css';
 import { render } from 'react-dom';
-import figmaLogo from '../images/figmalogoScreenshot.png'
+import figmaLogo from '../images/figmalogoScreenshot.png';
 
+function Navbar () {
 
-
-function Navbar (props) {
   return (
-    <nav className="navbar">
+    <div>
+      <nav>
+      
       <img
         src={figmaLogo}
         alt=""
-        className="img-fluid"
-      />
+        className="img-fluid"/>
+      
+      
       <h1>Watchopolis</h1>
-      <ul className = 'nav-links'>
-        <li className="navLi">
-          <Link to="/">Home</Link>
+      <ul className = "nav-links">
+        <li className="nav-link">
+          <Link to="/" className="nav-link">Home</Link>
         </li>
-        <li className="navLi">
-          <Link to="/user">Login</Link>
+        <li className="nav-link">
+          <Link to="/user" className="nav-link">Login</Link>
         </li>
-        <li className="navLi">
-          <Link to="/user/new">Register</Link>
+        <li className="nav-link">
+          <Link to="/user/new" className="nav">Register</Link>
         </li>
-       
       </ul>
-    </nav>
-  );
-}
+      </nav>
+    </div>  
+  )
+};
 
 export default Navbar;

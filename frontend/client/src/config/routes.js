@@ -12,7 +12,7 @@ export default (
   <Router>
     <Switch>
     <Route exact path ="/" component = { Home }/>
-    <Route exact path='/user/new' component = { UserNew }/>
+    <Route path='/user/new' exact component = { UserNew }/>
     {/* <Route exact path='/user/:id' component = { UserShow }/> */}
     <Route path="/room/:roomId" exact component = { RoomPage } />
   </Switch>
