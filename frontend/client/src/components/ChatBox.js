@@ -40,7 +40,7 @@ const ChatBox = (props) => {
         onChange={handleNewMessageChange}
         placeholder="Write message ..."
         className="new-message-input-field"
-      />
+      />////////////=========================================================Check This
       <button onClick={handleSendMessage} className="send-message-button" type="submit">
         Send
       </button>
