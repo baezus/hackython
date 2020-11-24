@@ -6,7 +6,7 @@ const URL = 'ws://localhost:3001';
 
 class ChatBox extends Component {
   state = {
-    name: 'Bob',
+    name: '',
     messages: [],
   }
 
@@ -45,9 +45,8 @@ class ChatBox extends Component {
 
   render() {
     return (
-      <div>
+      <div className="chatForm">
         <label htmlFor="name">
-          Name:&nbsp;
           <input 
             type="text"
             id={'name'}

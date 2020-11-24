@@ -1,6 +1,8 @@
 .video_container {
-  width: 70vh;
+  width: 65vh;
   padding-left: 5em;
+  margin-right: 0;
+  border-right: 0;
 }
 
 .video_details {
@@ -13,4 +15,19 @@
 
 #roomID {
   margin-left: -15px;
+}
+
+.chatbox {
+  display: inline-block;
+  width: 30%;
+  
+  text-align: right;
+  align-items: right;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin-right: -50%;
+  border-left: 0;
+  margin-left: 0;
+
+  
 }
