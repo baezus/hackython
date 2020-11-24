@@ -96,20 +96,6 @@ class UserNew extends React.Component {
             />
           </div>
 
-          {/* <div className = "formGroup">
-            <label 
-              className="formGroupLabel"
-              htmlFor="completed"
-              > Completed </label>
-            <input 
-              onChange={this.handleInputChange}
-              className="formGroupInput"
-              value={this.state.completed}
-              type="checkbox"
-              id="completed"
-              name="completed"
-              />
-          </div> */}
         <input className='submit-user' type="submit" value='Register'/>
         </form>
         </div>

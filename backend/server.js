@@ -9,10 +9,11 @@ const passport = require('passport');
 // const flash = require('connect-flash');
 const LocalStrategy = require('passport-local');
 const cors = require('cors');
+const WebSocket = require('ws');
 const db = require('./models');
 
 let corsOptions = {
-  origin: ['http://localhost:3000', 'http://localhost:3001']
+  origin: ['http://localhost:3000']
 };
 app.use(express.json());
 app.use(cors(corsOptions));
@@ -24,31 +25,19 @@ app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
-//Socket.io
-const server = require('http').createServer();
-const io = require('socket.io')(server);
+//WebSocket
 
-const socketPORT = 3001;
-const NEW_CHAT_MESSAGE_EVENT = "newChatMessage";
-io.on('connection', (socket) => {
+const wss = new WebSocket.Server({ port: 3001 });
 
-  //Join a conversation
-  const { roomId } = socket.handshake.query;
-  socket.join(roomId);
-
-  //Listen for new messages
-  socket.on(NEW_CHAT_MESSAGE_EVENT, (data) => {
-    io.in(roomId).emit(NEW_CHAT_MESSAGE_EVENT, data);
-  });
-
-  //Leave the room
-  socket.on('disconnect', () => {
-    socket.leave(roomId);
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(data) {
+    wss.clients.forEach(function each(client) {
+      if (client !== ws && client.readyState === WebSocket.OPEN) {
+        client.send(data);
+      }
+    });
   });
 });
-
-
-io.listen(3001);
 
 //Dot Env
 require('dotenv').config();
@@ -102,7 +91,7 @@ app.use('*', (req, res) => {
   res.send('404!');
 });
 
-app.listen(PORT, () => { 
+server.listen(PORT, () => { 
   console.log(`Server is tootin' and boopin' on port ${PORT}!`);
 });
 

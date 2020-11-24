@@ -1,0 +1,25 @@
+.video_container {
+  width: 70vh;
+  padding-left: 5em;
+}
+
+.video_details {
+  display: flex;
+  flex-flow: column;
+  width: 30%;
+  padding-left: 2.5em;
+  text-align: left;
+}
+
+#roomID {
+  margin-left: -15px;
+}
+.chatbox {
+  border: 1px solid;
+  width: 400px;
+  float: right;
+  margin-right: 300px;
+  padding-bottom: 300px;
+  height: 400px;
+  
+}
