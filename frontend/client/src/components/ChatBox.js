@@ -47,13 +47,14 @@ class ChatBox extends Component {
   render() {
     return (
       <div className='chatbox'>
-        <h2>Chat?</h2>
+        <h1 className='chatName'>Chat!</h1>
         <label htmlFor="name">
           <input 
             type="text"
             id={'name'}
             placeholder={'Enter your name ...'}
             value={this.state.name}
+            className="enteringName"
             onChange={e => this.setState({ name: e.target.value })}
           />
         </label>

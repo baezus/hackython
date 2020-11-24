@@ -6,6 +6,7 @@ nav {
   justify-content: space-between;
   overflow: hidden;
   font-family: 'Open Sans', sans-serif;
+  margin-bottom: 35px;
 }
 img {
   padding-top: 17px;

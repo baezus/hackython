@@ -3,3 +3,20 @@
   margin-bottom: 15px;
   font-size: 100%;
 }
+
+.enteringName {
+  
+    background-color: #1D1D27;
+    border: 4px double #5F5F7B;
+    height: 35px;
+    width: 58%;
+    color: whitesmoke;
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+}
+
+.chatName {
+  color: #1d1d27;
+  padding-left: 40%;
+}

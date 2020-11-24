@@ -9,13 +9,10 @@ function Navbar () {
   return (
     <div>
       <nav>
-      
       <img
         src={figmaLogo}
         alt=""
         className="img-fluid"/>
-      
-      
       <h1>Watchopolis</h1>
       <ul className = "nav-links">
         <li className="nav-link">

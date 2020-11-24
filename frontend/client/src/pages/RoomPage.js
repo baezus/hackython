@@ -12,8 +12,6 @@ class RoomPage extends React.Component{
   render(){
     return(
       <div>
-        <h1>Room Page</h1>
-       
         <div className="video-container">        
           <Col><VideoPlayer/></Col>
         </div>

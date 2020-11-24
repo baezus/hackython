@@ -9,6 +9,7 @@
   border: 20px #1D1D27;
   border-radius: 2%;
   border-style: double;
+  margin-bottom: 50px;
   
 }
 
@@ -30,15 +31,15 @@
 }
 
 .chatbox {
-  border: 10px double #FFCE2C;
-  width: 45vh;
+  border: 10px double #1D1D27;
+  width: 40vh;
   text-align: center;
-  height: 280px;
+  height: 300px;
   float: right;
-  padding-bottom: 28%;
+  padding-bottom: 23%;
   margin-left: none;
-  margin-right: 5vh;
-  border-radius: 2%;
+  margin-right: 7vh;
+  border-radius: 5px;
   overflow: scroll;
-  background-color: whitesmoke;
+  background-color: white;
 }
