@@ -31,9 +31,9 @@
 
 .chatbox {
   border: 10px double #FFCE2C;
-  width: 35vh;
+  width: 45vh;
   text-align: center;
-  height: 300px;
+  height: 280px;
   float: right;
   padding-bottom: 28%;
   margin-left: none;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'
 
+
 function Navbar (props) {
   return (
     <nav className="navbar">
@@ -9,6 +10,7 @@ function Navbar (props) {
         src="https://upload.wikimedia.org/wikipedia/commons/f/f4/User_Avatar_2.png"
         alt=""
       />
+      
       <h1>Watchopolis</h1>
       <ul className = 'nav-links'>
         <li className="navLi">
@@ -20,7 +22,7 @@ function Navbar (props) {
         <li className="navLi">
           <Link to="/user/new">Register</Link>
         </li>
-        <a href="#">Help</a>
+       
       </ul>
     </nav>
   );
