@@ -1,5 +1,6 @@
 import React from 'react';
 import UserModel from '../models/user';
+import './UserNew.css';
 
 class UserNew extends React.Component {
   state = {
@@ -32,61 +33,70 @@ class UserNew extends React.Component {
     console.log('Your props: ', this.props);
 
     return (
-      <div>
-        <h2>New User</h2>
-        <form onSubmit = {this.handleFormSubmit}>
+      <div className='register'>
+        <div className='heading'>
+          <p>Not Registered Yet?</p>
+          <p>Start an account to create rooms <br/> and share them with friends</p>
+        </div>
+        <div className='reg-container'>
+        <p>Register</p>
+          <form onSubmit = {this.handleFormSubmit}>
           <div className = "formGroup">
             <label
               className="formGroupLabel"
-              htmlFor="name">Name</label>
+              htmlFor="name"></label>
             <input
               onChange={this.handleInputChange}
               className="formGroupInput"
               value={this.state.name}
               type="text"
+              placeholder="Name"
               name="name"
             />
           </div>
           <div className = "formGroup">
             <label 
               className="formGroupLabel"
-              htmlFor="email">Email
+              htmlFor="email">
               </label>
               <input 
                 onChange = {this.handleInputChange}
                 className="formGroupInput"
                 value={this.state.email}
                 type="email"
+                placeholder="Email"
                 name="email"
               />
           </div>
           <div className="formGroup">
             <label
               className="formGroupLabel"
-              htmlFor="username">Username
+              htmlFor="username">
             </label>
             <input 
             onChange={this.handleInputChange}
             className="formGroupInput"
             value={this.state.username}
             type="text"
+            placeholder="Username"
             name="username"
             />
           </div>
           <div className="formGroup">
             <label
               className="formGroupLabel"
-              htmlFor="password">Password</label>
+              htmlFor="password"></label>
             <input
               onChange={this.handleInputChange}
               className="formGroupInput"
               value={this.state.password}
               type="password"
+              placeholder="Password"
               name="password"
             />
           </div>
 
-          <div className = "formGroup">
+          {/* <div className = "formGroup">
             <label 
               className="formGroupLabel"
               htmlFor="completed"
@@ -99,9 +109,14 @@ class UserNew extends React.Component {
               id="completed"
               name="completed"
               />
-          </div>
-        <input type="submit" value="Add New User"/>
+          </div> */}
+        <input className='submit-user' type="submit" value='Register'/>
         </form>
+        </div>
+        <div className='circle1-new'></div>
+        <div className='circle2-new'></div>
+        <div className='circle3-new'></div>
+        <div className='rectangle-new'></div>
       </div>
     );
   }
