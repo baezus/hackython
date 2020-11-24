@@ -1,0 +1,16 @@
+.video_container {
+  width: 70vh;
+  padding-left: 5em;
+}
+
+.video_details {
+  display: flex;
+  flex-flow: column;
+  width: 30%;
+  padding-left: 2.5em;
+  text-align: left;
+}
+
+#roomID {
+  margin-left: -15px;
+}

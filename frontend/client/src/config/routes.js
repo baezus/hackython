@@ -15,7 +15,7 @@ export default (
     <Route exact path='/user/new' component = { UserNew }/>
     <Route exact path='/user/:id' component = { UserShow }/>
     <Route path="/room/:roomId" exact component = { RoomPage } />
-    </Switch>
+  </Switch>
   </Router>
 );
 

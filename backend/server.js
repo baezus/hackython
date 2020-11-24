@@ -9,6 +9,7 @@ const passport = require('passport');
 // const flash = require('connect-flash');
 const LocalStrategy = require('passport-local');
 const cors = require('cors');
+const WebSocket = require('ws');
 const db = require('./models');
 
 let corsOptions = {
@@ -24,9 +25,19 @@ app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
-//Socket.io
-const http = require('http');
+//WebSocket
 
+const wss = new WebSocket.Server({ port: 3001 });
+
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(data) {
+    wss.clients.forEach(function each(client) {
+      if (client !== ws && client.readyState === WebSocket.OPEN) {
+        client.send(data);
+      }
+    });
+  });
+});
 
 //Dot Env
 require('dotenv').config();
