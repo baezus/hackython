@@ -16,18 +16,12 @@
 #roomID {
   margin-left: -15px;
 }
-
 .chatbox {
-  display: inline-block;
-  width: 30%;
-  
-  text-align: right;
-  align-items: right;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  margin-right: -50%;
-  border-left: 0;
-  margin-left: 0;
-
+  border: 1px solid;
+  width: 400px;
+  float: right;
+  margin-right: 300px;
+  padding-bottom: 300px;
+  height: 400px;
   
 }

@@ -1,0 +1,66 @@
+.register {
+  background: black;
+  color: white;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.heading {
+  margin-top: 0;
+  padding-top: 0;
+}
+p {
+  margin-top: 0;
+  padding-top: 40px;
+  font-size: 25px;
+}
+.reg-container {
+  margin-left: 655px;
+  background: #5f5f7b;
+  width: 425px;
+  border-radius: 5px;
+  height: 475px;
+  z-index: 1;
+}
+.circle1-new {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  left: 550px;
+  top: 200px;
+  background: #F23131;
+  border-radius: 50%;
+}
+.circle2-new {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: 550px;
+  bottom: 200px;
+  background: #F23131;
+  border-radius: 50%;
+}
+.circle3-new {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  right: 300px;
+  top: 300px;
+  background: #F23131;
+  border-radius: 50%;
+}
+.rectangle-new {
+  position: absolute;
+  width: 270px;
+  height: 35px;
+  right: 700px;
+  top: 234px;
+  background: yellow;
+  z-index: -1;
+}
+.submit-user {
+  width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  background: yellow;
+}

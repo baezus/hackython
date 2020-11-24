@@ -1,4 +1,6 @@
 .video-container {
   width: 75vh;
 }
-
+.chatbox {
+  display: block;
+}

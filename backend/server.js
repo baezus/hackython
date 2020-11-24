@@ -13,7 +13,7 @@ const WebSocket = require('ws');
 const db = require('./models');
 
 let corsOptions = {
-  origin: ['http://localhost:3000', 'http://localhost:3001']
+  origin: ['http://localhost:3000']
 };
 app.use(express.json());
 app.use(cors(corsOptions));
@@ -91,7 +91,7 @@ app.use('*', (req, res) => {
   res.send('404!');
 });
 
-app.listen(PORT, () => { 
+server.listen(PORT, () => { 
   console.log(`Server is tootin' and boopin' on port ${PORT}!`);
 });
 

@@ -10,16 +10,17 @@ function Navbar (props) {
         alt=""
       />
       <h1>Watchopolis</h1>
-      <ul>
+      <ul className = 'nav-links'>
         <li className="navLi">
           <Link to="/">Home</Link>
         </li>
         <li className="navLi">
-          <Link to="/user">All Users</Link>
+          <Link to="/user">Login</Link>
         </li>
         <li className="navLi">
-          <Link to="/user/new">Add New User</Link>
+          <Link to="/user/new">Register</Link>
         </li>
+        <a href="#">Help</a>
       </ul>
     </nav>
   );
