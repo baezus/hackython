@@ -1,52 +1,75 @@
-import React from 'react';
+import React, { Component } from 'react';
+import ChatInput from './ChatInput';
+import ChatMessage from './ChatMessage';
 
-import useChat from '../useChat';
+const URL = 'ws://localhost:3001';
 
-const ChatBox = (props) => {
-  const { roomId } = props.match.params;
-  const { messages, sendMessage } = useChat(roomId);
-  const [newMessage, setNewMessage] = React.useState("");
+class ChatBox extends Component {
+  state = {
+    name: 'Bob',
+    messages: [],
+  }
 
-  const handleNewMessageChange = (e) => {
-    setNewMessage(e.target.value);
-  };
+  ws = new WebSocket (URL)
 
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    sendMessage(newMessage);
-    setNewMessage("");
-  };
+  componentDidMount() {
+    this.ws.onopen = () => {
+      //on connecting, do nothing but log to the console.
+      console.log('socket connected')
+    }
 
-  return (
-    <div className="chat-room-container">
-      <h1 className="room-name">Room: {roomId}</h1>
-      <div className="messages-container">
-        <ol className="messages-list">
-          {messages.map((message, i) => (
-            <li
-              key={i}
-              className={`message-item ${
-                message.ownedByCurrentUser ? "my-message" : "received-message"
-              }`}
-            >
-              {message.body}
-            </li>
-          ))}
-        </ol>
+    this.ws.onmessage = evt => {
+      //on receieving a message, add it to the list of messages
+      const message = JSON.parse(evt.data)
+      this.addMessage(message);
+    }
+
+    this.ws.onclose = () => {
+      console.log('disconnected from socket')
+      //automatically try to reconnect on connection loss
+      this.setState({ 
+        ws: new WebSocket(URL),
+      })
+    }
+  }
+
+  addMessage = message => 
+    this.setState(state => ({ messages: [message, ...state.messages]}))
+
+  submitMessage = messageString => {
+    //on submitting the ChatInput form, send the message, add it to the messages list, and reset the input.
+    const message = { name: this.state.name, message: messageString }
+    this.ws.send(JSON.stringify(message))
+    this.addMessage(message)
+  }
+
+  render() {
+    return (
+      <div>
+        <label htmlFor="name">
+          Name:&nbsp;
+          <input 
+            type="text"
+            id={'name'}
+            placeholder={'Enter your name ...'}
+            value={this.state.name}
+            onChange={e => this.setState({ name: e.target.value })}
+          />
+        </label>
+        <ChatInput
+          ws={this.ws}
+          onSubmitMessage={messageString => this.submitMessage(messageString)}
+          />
+          {this.state.messages.map((message, index) => 
+          <ChatMessage 
+            key={index}
+            message={message.message}
+            name={message.name}
+            />,
+          )}
       </div>
-      <form action="room/" method="POST">
-      <textarea
-        value={newMessage}
-        onChange={handleNewMessageChange}
-        placeholder="Write message ..."
-        className="new-message-input-field"
-      />////////////=========================================================Check This
-      <button onClick={handleSendMessage} className="send-message-button" type="submit">
-        Send
-      </button>
-      </form>
-    </div>
-  );
-};
+    )
+  }
+}
 
 export default ChatBox;
