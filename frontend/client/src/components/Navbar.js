@@ -1,16 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'
+import { render } from 'react-dom';
+import figmaLogo from '../images/figmalogoScreenshot.png'
+
 
 
 function Navbar (props) {
   return (
     <nav className="navbar">
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/f/f4/User_Avatar_2.png"
+        src={figmaLogo}
         alt=""
+        className="img-fluid"
       />
-      
       <h1>Watchopolis</h1>
       <ul className = 'nav-links'>
         <li className="navLi">

@@ -1,10 +1,11 @@
 footer {
   background: #1d1d27;
-  height: 10vh;
+  height: 9vh;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
 ul { 
   display: flex;
@@ -20,6 +21,6 @@ a {
   list-style-type: none;
   color: #fff;
   text-decoration: none;
-  font-size: 110%;
+  font-size: 115%;
   overflow: hidden;
 }
