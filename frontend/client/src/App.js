@@ -1,14 +1,14 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Footer from './components/Footer';
+import routes from './config/routes';
+import Footer from './components/Footer'
 
 class App extends React.Component {
   render() {
   return (
     <div>
       <Navbar />
-        <Home />
+      { routes }
       <Footer />
     </div>
   );}
